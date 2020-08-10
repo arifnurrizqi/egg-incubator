@@ -52,8 +52,8 @@ void setup() {
   delay(5000);
   lcd.clear();
 
-  lcd.setCursor(2,0);
-  lcd.print("Di Buat Oleh");
+  lcd.setCursor(4,0);
+  lcd.print("Made by");
   lcd.setCursor(1,1);
   lcd.print("Arif Nur Rizqi");
   delay(5000);
@@ -64,8 +64,8 @@ void setup() {
 void loop(){
   
   int relaytime= 10;
-  int Onrelaytime= 10000;
-  int Offrelaytime= 20000;
+  int Onrelaytime= 10000; // long time rotate eggs (depending on the rpm of the motor)
+  int Offrelaytime= 10800000; // delay 3 hours rotate eggs
     
   unsigned long lasttime= millis();
 
@@ -92,13 +92,9 @@ if(lasttime-firsttime>=relaytime){
   digitalWrite(suhuoff, HIGH); 
   digitalWrite(suhuon, LOW);
 }
-  if (h<55)//Fan ON
+  if (h<55) || (h>60)//Fan ON
 {
   digitalWrite(13, HIGH);
-}
-  else if (h>60)//Fan OFF
-{ 
-  digitalWrite(13, LOW);
 }
   
     Serial.print("Humidity: ");
