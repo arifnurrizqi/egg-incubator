@@ -61,80 +61,83 @@ void setup() {
 
   pinMode(13, OUTPUT);  // turn on the fan using pin 13
 }
+
 void loop(){
   
-  int relaytime= 10;
-  int Onrelaytime= 10000; // long time rotate eggs (depending on the rpm of the motor)
+  int relaytime= 50;
+  int Onrelaytime= 12500; // long time rotate eggs (depending on the rpm of the motor)
   int Offrelaytime= 10800000; // delay 3 hours rotate eggs
     
   unsigned long lasttime= millis();
 
-if(lasttime-firsttime>=relaytime){
- // Read humidity dan temperature
-  float h = dht.readHumidity();
-  float t = dht.readTemperature();
-    
-  // Check the reading results, and display if ok
-  if (isnan(t) || isnan(h)) {
-    Serial.println("Failed to read from DHT");
-    return;
-}
-    
-  if (t<37.77)// ON
-{
-  digitalWrite(RELAY_1, RELAY_ON);
-  digitalWrite(suhuon, HIGH);
-  digitalWrite(suhuoff, LOW);
-}
-  else if (t>38.33)//OFF
-{
-  digitalWrite(RELAY_1, RELAY_OFF);
-  digitalWrite(suhuoff, HIGH); 
-  digitalWrite(suhuon, LOW);
-}
-  if (h<55) || (h>60)//Fan ON
-{
-  digitalWrite(13, HIGH);
-}
-  
-    Serial.print("Humidity: ");
-    Serial.print(h);
-    Serial.print(" %t");
-    
-    Serial.print("Temperature: "); 
-    Serial.print(t);
-    Serial.println(" *C");
+  if(lasttime-firsttime>=relaytime){
+      // Read humidity dan temperature
+      float h = dht.readHumidity();
+      float t = dht.readTemperature();
 
-  lcd.setCursor(0,0);
-  lcd.print("Humi: "); 
-  lcd.print(h);
-  lcd.print(" %      ");
-  lcd.setCursor(0,1);
-  lcd.print("Temp: "); 
-  lcd.print(t);
-  lcd.print(" C      ");
-  
-  firsttime= millis();
+      // Check the reading results, and display if ok
+      if (isnan(t) || isnan(h)) {
+          Serial.println("Failed to read from DHT");
+          return;
+      }
+
+      if (t<37.77)// ON
+      {
+          digitalWrite(RELAY_1, RELAY_ON);
+          digitalWrite(suhuon, HIGH);
+          digitalWrite(suhuoff, LOW);
+      }
+      else if (t>38.33)//OFF
+      {
+          digitalWrite(RELAY_1, RELAY_OFF);
+          digitalWrite(suhuoff, HIGH); 
+          digitalWrite(suhuon, LOW);
+      }
+      if (h<55) || (h>60)//Fan ON
+      {
+          digitalWrite(13, HIGH);
+      }
+      else {
+          digitalWrite(13, LOW);
+      }
+
+
+      Serial.print("Humidity: ");
+      Serial.print(h);
+      Serial.print(" %t");
+
+      Serial.print("Temperature: "); 
+      Serial.print(t);
+      Serial.println(" *C");
+
+      lcd.setCursor(0,0);
+      lcd.print("Humi: "); 
+      lcd.print(h);
+      lcd.print(" %      ");
+      lcd.setCursor(0,1);
+      lcd.print("Temp: "); 
+      lcd.print(t);
+      lcd.print(" C      ");
+
+      firsttime= millis();
 }
 unsigned long lasttime2= millis();
 
     if((relayState == HIGH) && (lasttime2 - 
     firsttime2 >= Offrelaytime))
-
-        {
+    {
         relayState = LOW; // Turn it off
 
         firsttime2 = lasttime2; // Remember the time
 
         digitalWrite(RELAY_2, relayState); // Update the actual RELAY
 
-        }
+    }
     else if ((relayState == LOW) && (lasttime2 - 
     firsttime2 >= Onrelaytime))
-
-        {
+    {
         relayState = HIGH; // turn it on
         firsttime2 = lasttime2; // Remember the time
         digitalWrite(RELAY_2, relayState);	 // Update the actual RELAY
-        }
+    }
 }
