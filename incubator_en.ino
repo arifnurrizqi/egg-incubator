@@ -66,7 +66,7 @@ void loop(){
   
   int relaytime= 50;
   int Onrelaytime= 12500; // long time rotate eggs (depending on the rpm of the motor)
-  int Offrelaytime= 10800000; // delay 3 hours rotate eggs
+  unsigned long Offrelaytime= 10800000; // delay 3 hours rotate eggs
     
   unsigned long lasttime= millis();
 
@@ -93,7 +93,7 @@ void loop(){
           digitalWrite(suhuoff, HIGH); 
           digitalWrite(suhuon, LOW);
       }
-      if (h<55) || (h>60)//Fan ON
+      if (h=>60)//Fan ON
       {
           digitalWrite(13, HIGH);
       }
