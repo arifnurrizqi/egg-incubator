@@ -1,4 +1,4 @@
-/*------------------------------------------------Incubator Project
+/*---------------------Incubator Project--------------------------
 -----------------------------------------------------------------*/
 
 #include "DHT.h"
@@ -93,13 +93,9 @@ void loop(){
           digitalWrite(suhuoff, HIGH); 
           digitalWrite(suhuon, LOW);
       }
-      if (h=>60)//Fan ON
-      {
+      //Fan ON
+      
           digitalWrite(13, HIGH);
-      }
-      else {
-          digitalWrite(13, LOW);
-      }
 
 
       Serial.print("Humidity: ");
@@ -127,11 +123,8 @@ unsigned long lasttime2= millis();
     firsttime2 >= Offrelaytime))
     {
         relayState = LOW; // Turn it off
-
         firsttime2 = lasttime2; // Remember the time
-
         digitalWrite(RELAY_2, relayState); // Update the actual RELAY
-
     }
     else if ((relayState == LOW) && (lasttime2 - 
     firsttime2 >= Onrelaytime))
