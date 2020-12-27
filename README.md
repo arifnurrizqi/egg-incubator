@@ -3,19 +3,19 @@
   Egg Incubator automation using Arduino (I'm here using Arduino Uno). 
 ## Materials
   1. The main materials
-     * arduino.
-     * dHT11 sensor. 
-     * relay 2 chanel.
-     * lcd 16x2.
-     * wirings.
-     * fan 12cm.
+     * Arduino.
+     * DHT11 sensor. 
+     * Relay 2 chanel.
+     * Lcd 16x2.
+     * Wirings.
+     * Fan 12cm.
      * adaptor 12v.
      * asyncronous motor 3 rpm(optional).
-     * light bulb.
+     * Light bulb.
   2. Supporting materials
-     * box.
-     * egg rack type apb or the like(optional).
-     * tray for water container.
+     * Box.
+     * Egg rack type apb or the like(optional).
+     * Tray for water container.
 ## Wirring diagram
   Coming soon...
 ## Galery
