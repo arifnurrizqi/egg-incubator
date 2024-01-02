@@ -6,7 +6,7 @@
      * Arduino.
      * DHT11 sensor. 
      * Relay 2 chanel.
-     * Lcd 16x2.
+     * Lcd 16x2 I2C.
      * Wirings.
      * Fan 12cm.
      * adaptor 12v.
@@ -17,7 +17,7 @@
      * Egg rack type apb or the like(optional).
      * Tray for water container.
 ## Wirring diagram
-  ![wiring-diagram-image](wiring-diagram.png)
+  ![wiring-diagram-image](wiring.jpg)
 ## Galery
   Coming soon...
 ## Demo Video
