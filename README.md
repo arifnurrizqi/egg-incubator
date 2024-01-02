@@ -6,7 +6,7 @@
      * Arduino.
      * DHT11 sensor. 
      * Relay 2 chanel.
-     * Lcd 16x2.
+     * Lcd 16x2 I2C.
      * Wirings.
      * Fan 12cm.
      * adaptor 12v.
