@@ -17,7 +17,7 @@
      * Egg rack type apb or the like(optional).
      * Tray for water container.
 ## Wirring diagram
-  ![wiring-diagram-image](wiring-diagram.png)
+  ![wiring-diagram-image](wiring.png)
 ## Galery
   Coming soon...
 ## Demo Video
